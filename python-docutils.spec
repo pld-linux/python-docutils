@@ -11,7 +11,7 @@ Summary(pl):	Modu³y Pythona do przetwarzania dokumentów tekstowych
 Name:		python-%{module}
 Version:	0.3.5
 Release:	1
-License:	Public domain
+License:	Public Domain
 Group:		Development/Languages/Python
 Source0:	http://dl.sourceforge.net/%{module}/%{module}-%{version}.tar.gz
 # Source0-md5:	b49007d4fb3a24305cc8f30313684925
