@@ -1,9 +1,9 @@
 %include	/usr/lib/rpm/macros.python
 
-%define         module	docutils
+%define		module	docutils
 
-Summary:	Text documents processing for python
-Summary(pl):	Modu³y pythona do przetwarzania dokumentów tekstowych
+Summary:	Text documents processing for Python
+Summary(pl):	Modu³y Pythona do przetwarzania dokumentów tekstowych
 Name:		python-%{module}
 Version:	0.3.3
 Release:	1
