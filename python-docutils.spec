@@ -44,7 +44,7 @@ takie jak HTML, XML czy TeX. Jak na razie obs³ugiwane s± formaty:
 - PEPy (proponowane rozszerzenia Pythona)
 
 Planowane jest stworzenie obs³ugi formatów:
-- dokmentacji inline dla modu³ów i pakietów Pythona
+- dokumentacji inline dla modu³ów i pakietów Pythona
 - Emaili
 - Wiki
 - dokumentów z³o¿onych
