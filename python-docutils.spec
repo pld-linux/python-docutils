@@ -1,15 +1,20 @@
 
 %define		module	docutils
 
+# TODO:
+#	- consider renaming the spec to distutils.spec and separate
+#	python-docutils subpackage (this package includes utilities in
+#	%%{_bindir} and python-* packages should contain Python modules only)
+
 Summary:	Text documents processing for Python
 Summary(pl):	Modu³y Pythona do przetwarzania dokumentów tekstowych
 Name:		python-%{module}
-Version:	0.3.3
+Version:	0.3.5
 Release:	1
 License:	Public domain
 Group:		Development/Languages/Python
-Source0:	http://dl.sourceforge.net/%{module}/%{module}-%{version}-alpha.tar.gz
-# Source0-md5:	e2ee36b7e878cb53fcee564aaba1f067
+Source0:	http://dl.sourceforge.net/%{module}/%{module}-%{version}.tar.gz
+# Source0-md5:	b49007d4fb3a24305cc8f30313684925
 URL:		http://docutils.sourceforge.net/
 %pyrequires_eq	python-modules
 BuildRequires:	python-devel >= 2.3
@@ -53,14 +58,20 @@ python setup.py build
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{py_sitedir},%{_examplesdir}}
+install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
-mv test $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+cp -r test/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+
 python setup.py install \
 	--root=$RPM_BUILD_ROOT \
 	--optimize=2
 
-rm -f $RPM_BUILD_ROOT%{py_sitescriptdir}/*.py
+find $RPM_BUILD_ROOT%{py_sitescriptdir} -name "*.py" | xargs rm
+
+cd $RPM_BUILD_ROOT%{_bindir}
+for f in * ; do
+	mv $f ${f%%.py} 
+done
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -68,7 +79,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README.txt HISTORY.txt COPYING.txt FAQ.txt
-%attr(755,root,root) %{_bindir}/rst2html.py
+%attr(755,root,root) %{_bindir}/*
 %{py_sitescriptdir}/*.py[co]
 %{py_sitescriptdir}/%{module}
 %dir %{_examplesdir}/%{name}-%{version}
