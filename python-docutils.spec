@@ -15,8 +15,8 @@ URL:		http://docutils.sourceforge.net/
 %pyrequires_eq	python-modules
 BuildRequires:	python-devel >= 2.3
 BuildRequires:	rpm-pythonprov
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 BuildArch:	noarch
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 The purpose of the Docutils project is to create a set of tools for
@@ -50,14 +50,12 @@ Planowane jest stworzenie obs³ugi formatów:
 %setup -q -n %{module}-%{version}
 
 %build
-CFLAGS="%{rpmcflags}"
-export CLFAGS
 python setup.py build
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{py_sitedir}
-install -d $RPM_BUILD_ROOT%{_examplesdir}
+install -d $RPM_BUILD_ROOT{%{py_sitedir},%{_examplesdir}}
+
 mv test $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 python setup.py install \
 	--root=$RPM_BUILD_ROOT \
