@@ -18,7 +18,6 @@ Source0:	http://dl.sourceforge.net/%{module}/%{module}-%{version}.tar.gz
 URL:		http://docutils.sourceforge.net/
 %pyrequires_eq	python-modules
 BuildRequires:	python-devel >= 1:2.3
-BuildRequires:	rpm-pythonprov
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
