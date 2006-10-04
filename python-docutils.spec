@@ -10,7 +10,7 @@ Summary:	Text documents processing for Python
 Summary(pl):	Modu³y Pythona do przetwarzania dokumentów tekstowych
 Name:		python-%{module}
 Version:	0.4
-Release:	1
+Release:	2
 License:	Public Domain
 Group:		Development/Languages/Python
 Source0:	http://dl.sourceforge.net/%{module}/%{module}-%{version}.tar.gz
@@ -80,5 +80,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc README.txt HISTORY.txt COPYING.txt FAQ.txt
 %attr(755,root,root) %{_bindir}/*
 %{py_sitescriptdir}/%{module}
+%{py_sitescriptdir}/roman.py*
 %dir %{_examplesdir}/%{name}-%{version}
 %{_examplesdir}/%{name}-%{version}/*
