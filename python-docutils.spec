@@ -1,11 +1,9 @@
+# TODO:
+# - consider renaming the spec to distutils.spec and separate
+#   python-docutils subpackage (this package includes utilities in
+#   %{_bindir} and python-* packages should contain Python modules only)
 
 %define		module	docutils
-
-# TODO:
-#	- consider renaming the spec to distutils.spec and separate
-#	python-docutils subpackage (this package includes utilities in
-#	%%{_bindir} and python-* packages should contain Python modules only)
-
 Summary:	Text documents processing for Python
 Summary(pl):	Modu³y Pythona do przetwarzania dokumentów tekstowych
 Name:		python-%{module}
@@ -68,7 +66,7 @@ python setup.py install \
 find $RPM_BUILD_ROOT%{py_sitescriptdir} -name "*.py" | xargs rm
 
 cd $RPM_BUILD_ROOT%{_bindir}
-for f in * ; do
+for f in *.py; do
 	mv $f ${f%%.py} 
 done
 
@@ -80,6 +78,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc README.txt HISTORY.txt COPYING.txt FAQ.txt
 %attr(755,root,root) %{_bindir}/*
 %{py_sitescriptdir}/%{module}
-%{py_sitescriptdir}/roman.py*
+%{py_sitescriptdir}/roman.py[co]
 %dir %{_examplesdir}/%{name}-%{version}
 %{_examplesdir}/%{name}-%{version}/*
