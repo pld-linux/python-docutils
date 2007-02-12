@@ -5,7 +5,7 @@
 
 %define		module	docutils
 Summary:	Text documents processing for Python
-Summary(pl):	Modu≥y Pythona do przetwarzania dokumentÛw tekstowych
+Summary(pl.UTF-8):   Modu≈Çy Pythona do przetwarzania dokument√≥w tekstowych
 Name:		python-%{module}
 Version:	0.4
 Release:	2
@@ -33,19 +33,19 @@ Support for the following sources is planned:
 - Compound documents
 - And others as discovered.
 
-%description -l pl
-Celem projektu Docutils jest stworzenie zestawu narzÍdzi do
-przetwarzania dokumentacji z czystego tekstu na uøyteczne formaty,
-takie jak HTML, XML czy TeX. Jak na razie obs≥ugiwane s± formaty:
-- niezaleøne pliki tekstowe
+%description -l pl.UTF-8
+Celem projektu Docutils jest stworzenie zestawu narzƒôdzi do
+przetwarzania dokumentacji z czystego tekstu na u≈ºyteczne formaty,
+takie jak HTML, XML czy TeX. Jak na razie obs≈Çugiwane sƒÖ formaty:
+- niezale≈ºne pliki tekstowe
 - PEPy (proponowane rozszerzenia Pythona)
 
-Planowane jest stworzenie obs≥ugi formatÛw:
-- dokumentacji inline dla modu≥Ûw i pakietÛw Pythona
+Planowane jest stworzenie obs≈Çugi format√≥w:
+- dokumentacji inline dla modu≈Ç√≥w i pakiet√≥w Pythona
 - Emaili
 - Wiki
-- dokumentÛw z≥oøonych
-- innych, w miarÍ potrzeb.
+- dokument√≥w z≈Ço≈ºonych
+- innych, w miarƒô potrzeb.
 
 %prep
 %setup -q -n %{module}-%{version}
