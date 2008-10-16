@@ -63,7 +63,12 @@ python setup.py install \
 	--root=$RPM_BUILD_ROOT \
 	--optimize=2
 
-find $RPM_BUILD_ROOT%{py_sitescriptdir} -name "*.py" | xargs rm
+# force installation of roman.py, which won't be installed
+# if another version of docutils is installed
+install extras/roman.py $RPM_BUILD_ROOT/%{py_sitescriptdir}/roman.py
+%py_comp $RPM_BUILD_ROOT%{py_sitescriptdir}
+%py_ocomp $RPM_BUILD_ROOT%{py_sitescriptdir}
+%py_postclean
 
 cd $RPM_BUILD_ROOT%{_bindir}
 for f in *.py; do
@@ -79,5 +84,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %{py_sitescriptdir}/%{module}
 %{py_sitescriptdir}/%{module}*.egg*
+%{py_sitescriptdir}/roman.py[co]
 %dir %{_examplesdir}/%{name}-%{version}
 %{_examplesdir}/%{name}-%{version}/*
