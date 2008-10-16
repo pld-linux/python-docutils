@@ -7,12 +7,12 @@
 Summary:	Text documents processing for Python
 Summary(pl.UTF-8):	Moduły Pythona do przetwarzania dokumentów tekstowych
 Name:		python-%{module}
-Version:	0.4
-Release:	4
+Version:	0.5
+Release:	1
 License:	Public Domain
 Group:		Development/Languages/Python
 Source0:	http://dl.sourceforge.net/%{module}/%{module}-%{version}.tar.gz
-# Source0-md5:	0fe7b42bb3c2aa3680fe30f9a5fbf712
+# Source0-md5:	dd72dac92fc8e3eb0f48c3effeef80f6
 URL:		http://docutils.sourceforge.net/
 %pyrequires_eq	python-modules
 BuildRequires:	python-devel >= 1:2.3
@@ -78,6 +78,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc README.txt HISTORY.txt COPYING.txt FAQ.txt
 %attr(755,root,root) %{_bindir}/*
 %{py_sitescriptdir}/%{module}
-%{py_sitescriptdir}/roman.py[co]
+%{py_sitescriptdir}/%{module}*.egg*
 %dir %{_examplesdir}/%{name}-%{version}
 %{_examplesdir}/%{name}-%{version}/*
