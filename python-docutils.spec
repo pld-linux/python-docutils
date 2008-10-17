@@ -14,8 +14,10 @@ Group:		Development/Languages/Python
 Source0:	http://dl.sourceforge.net/%{module}/%{module}-%{version}.tar.gz
 # Source0-md5:	dd72dac92fc8e3eb0f48c3effeef80f6
 URL:		http://docutils.sourceforge.net/
+BuildRequires:	python-devel >= 1:2.5
+BuildRequires:	rpm-pythonprov
+BuildRequires:	rpmbuild(macros) >= 1.219
 %pyrequires_eq	python-modules
-BuildRequires:	python-devel >= 1:2.3
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -51,7 +53,7 @@ Planowane jest stworzenie obsługi formatów:
 %setup -q -n %{module}-%{version}
 
 %build
-python setup.py build
+%{__python} setup.py build
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -59,13 +61,13 @@ install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 cp -r test/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
-python setup.py install \
+%{__python} setup.py install \
 	--root=$RPM_BUILD_ROOT \
 	--optimize=2
 
 # force installation of roman.py, which won't be installed
 # if another version of docutils is installed
-install extras/roman.py $RPM_BUILD_ROOT/%{py_sitescriptdir}/roman.py
+install extras/roman.py $RPM_BUILD_ROOT%{py_sitescriptdir}/roman.py
 %py_comp $RPM_BUILD_ROOT%{py_sitescriptdir}
 %py_ocomp $RPM_BUILD_ROOT%{py_sitescriptdir}
 %py_postclean
