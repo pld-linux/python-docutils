@@ -8,7 +8,7 @@ Summary:	Text documents processing for Python
 Summary(pl.UTF-8):	Moduły Pythona do przetwarzania dokumentów tekstowych
 Name:		python-%{module}
 Version:	0.5
-Release:	1
+Release:	2
 License:	Public Domain
 Group:		Development/Languages/Python
 Source0:	http://dl.sourceforge.net/%{module}/%{module}-%{version}.tar.gz
