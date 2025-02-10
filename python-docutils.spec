@@ -4,7 +4,7 @@ Summary:	Documentation Utilities
 Summary(pl.UTF-8):	Narzędzia do tworzenia dokumentacji
 Name:		python-docutils
 Version:	0.18.1
-Release:	6
+Release:	7
 License:	Public Domain, BSD, GPL v3 (see COPYING.txt)
 Group:		Development/Tools
 # original URL, but only with major releases: http://downloads.sourceforge.net/docutils/%{name}-%{version}.tar.gz
@@ -22,7 +22,6 @@ BuildConflicts:	python-PyXML
 %endif
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
-Requires:	python3-%{name} = %{version}-%{release}
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -45,7 +44,7 @@ Ten pakiet dostarcza moduły Docutils dla Pythona 2.
 Summary:	Documentation Utilities for Python 2.x
 Summary(pl.UTF-8):	Narzędzia do tworzenia dokumentacji dla Pythona 2.x
 Group:		Development/Tools
-Requires:	python-%{name} = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 
 %description -n docutils-2
 Utilities for general- and special-purpose documentation, including
